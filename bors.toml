@@ -1,0 +1,8 @@
+status = [
+  "fmt",
+  "test" 
+]
+
+update_base_for_deletes = true
+
+use_squash_merge = true
