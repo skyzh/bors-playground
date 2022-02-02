@@ -6,3 +6,5 @@ status = [
 update_base_for_deletes = true
 
 use_squash_merge = true
+
+delete_merged_branches = true
