@@ -1,0 +1,20 @@
+queue_rules:
+  - name: default
+    conditions:
+      - check-success=CI / fmt
+      - check-success=CI / test
+
+pull_request_rules:
+  - name: merge using the merge queue
+    conditions:
+      - and:
+        - base=main
+        - check-success=CI / fmt
+        - check-success=CI / test
+        - or:
+          - body~=(?m)^\[X\] ready to merge
+          - label=can-merge
+    actions:
+      queue:
+        name: default
+        method: squash
